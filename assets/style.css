@@ -1,0 +1,204 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.background-image {
+    background-image: url('images/lerestau.jpg'); /* Chemin vers l'image de fond */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 50px;
+    color: #fff;
+    position: absolute;
+    top: 50%; /* Centré verticalement */
+    left: 50%; /* Centré horizontalement */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1; /* Assurez-vous que le titre est au-dessus des plats */
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 120%; /* La longueur du trait */
+    height: 3px; /* La hauteur du trait */
+    background-color: #fff; /* La couleur du trait */
+    position: absolute;
+    left: 55%; /* Position horizontale pour commencer sous le "r" */
+    bottom: -10px; /* Position verticale sous le texte */
+    transform: translateX(-50%);
+}
+
+.clock {
+    position: relative;
+    width: 600px; /* Taille du conteneur */
+    height: 600px; /* Taille du conteneur */
+    animation: rotate 30s linear infinite; /* Rotation plus lente */
+}
+
+.plat {
+    position: absolute;
+    width: 150px; /* Taille du cercle */
+    height: 150px; /* Taille du cercle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrer les plats */
+    transform-origin: 0 250px; /* Centre de rotation */
+}
+
+.plat a {
+    display: block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Assurez-vous que les images ne débordent pas des cercles */
+}
+
+.plat a img {
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajuste l'image pour remplir le cercle */
+}
+
+.plat a img:hover {
+    transform: scale(1.1); /* Agrandit l'image de 10% */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.clock:hover {
+    animation-play-state: paused; /* Arrêter la rotation au survol */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: auto; /* Place le footer en bas si le contenu est court */
+}
+
+/* Ajustements pour les images dans les cards */
+.card-img-top {
+    object-fit: cover;
+    height: 300px; /* Ajuster selon les besoins */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h1::after {
+        width: 100%;
+        left: 50%;
+        bottom: -5px;
+    }
+
+    .clock {
+        width: 400px; /* Taille du conteneur */
+        height: 400px; /* Taille du conteneur */
+    }
+
+    .plat {
+        width: 100px; /* Taille du cercle */
+        height: 100px; /* Taille du cercle */
+        transform-origin: 0 175px; /* Centre de rotation */
+    }
+
+    .plat a {
+        padding: 10px;
+    }
+
+    .plat a img {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .clock {
+        width: 300px; /* Taille du conteneur */
+        height: 300px; /* Taille du conteneur */
+    }
+
+    .plat {
+        width: 80px; /* Taille du cercle */
+        height: 80px; /* Taille du cercle */
+        transform-origin: 0 125px; /* Centre de rotation */
+    }
+
+    .plat a img {
+        width: 70%;
+        height: 70%;
+    }
+}
