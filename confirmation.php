@@ -9,6 +9,7 @@
                     <div class="card-body text-center">
                         <p>Merci, <?php echo htmlspecialchars($_GET['name']); ?>.</p>
                         <p>Votre réservation pour le <?php echo htmlspecialchars($_GET['date']); ?> à <?php echo htmlspecialchars($_GET['time']); ?> a été reçue.</p>
+                        <p>Elle sera validée par un membre de notre équipe de logistique, et vous recevrez un email de confirmation.</p>
                         <a href="index.php" class="btn btn-dark">Retour à l'accueil</a>
                     </div>
                 </div>

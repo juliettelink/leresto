@@ -53,7 +53,7 @@
 
         ?>
         </div>
-                <h3>Nos plats</h3>
+                <h3>Nos desserts</h3>
         <div class="row">
             <?php
 
@@ -69,9 +69,9 @@
                     <img src='{$dessert['image1']}' class='card-img-top' alt='{$dessert['name']}'>
                     <div class='card-body'>
                         <h5 class='card-title'>{$dessert['name']}</h5>
+                        <p class='card-text'>{$dessert['prix']} €</p>
                         <p class='card-text short-description'>{$short_description}...</p>
                         <p class='card-text full-description d-none'>{$dessert['description']}</p>
-                        <p class='card-text'><small class='text-muted'>Ingrédients: {$dessert['ingredients']}</small></p>
                         <button class='btn btn-secondary show-more'>Voir plus</button>
                     </div>
                 </div>

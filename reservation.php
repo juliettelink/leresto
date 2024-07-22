@@ -14,6 +14,10 @@
                                 <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="date">Date:</label>
                                 <input type="date" class="form-control" id="date" name="date" required>
                             </div>
