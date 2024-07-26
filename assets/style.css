@@ -40,6 +40,11 @@ nav a {
     position: relative;
 }
 
+.content-wrapper {
+    background-image: url('images/lacarte.jpg'); /* Fond semi-transparent pour le contenu */
+    
+}
+
 h1 {
     font-size: 50px;
     color: #fff;

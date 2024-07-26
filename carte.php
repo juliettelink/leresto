@@ -1,12 +1,12 @@
 <?php include 'templates/header.php'; ?>
 <?php include 'config.php'; ?>
 
-<main class="container mt-5">
-    <h2 class="text-center mb-5">Notre Carte</h2>
-    <h3>Nos entrées</h3>
-    <div class="row">
-        <?php
-
+<main class="content-wrapper">
+    <div class="container">
+        <h2 class="text-center mb-5 text-white">Notre Carte</h2>
+        <h3 class="text-white mt-5">Nos entrées</h3>
+        <div class="row">
+            <?php
                 // Récupération des entrées
                 $stmt = $conn->query("SELECT id, prix, name, description, ingredients, image1 FROM entrees");
                 $entrees = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -27,57 +27,55 @@
                         </div>
                     </div>";
                 }
-                ?>
+            ?>
         </div>
-        <h3>Nos plats</h3>
+        <h3 class="text-white mt-5">Nos plats</h3>
         <div class="row">
             <?php
-            
-        // Récupération des plats
-        $stmt = $conn->query("SELECT id, name, prix, description, image1 FROM plats");
-        $plats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                // Récupération des plats
+                $stmt = $conn->query("SELECT id, name, prix, description, image1 FROM plats");
+                $plats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($plats as $plat) {
-            echo "
-            <div class='col-md-4 mb-4'>
-                <div class='card'>
-                    <img src='{$plat['image1']}' class='card-img-top' alt='{$plat['name']}'>
-                    <div class='card-body'>
-                        <h5 class='card-title'>{$plat['name']}</h5>
-                        <p class='card-text'>{$plat['prix']} €</p>
-                        <a href='plat.php?id={$plat['id']}' class='btn btn-dark'>Voir le plat</a>
-                    </div>
-                </div>
-            </div>";
-        }
-
-        ?>
+                foreach ($plats as $plat) {
+                    echo "
+                    <div class='col-md-4 mb-4'>
+                        <div class='card'>
+                            <img src='{$plat['image1']}' class='card-img-top' alt='{$plat['name']}'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>{$plat['name']}</h5>
+                                <p class='card-text'>{$plat['prix']} €</p>
+                                <a href='plat.php?id={$plat['id']}' class='btn btn-dark'>Voir le plat</a>
+                            </div>
+                        </div>
+                    </div>";
+                }
+            ?>
         </div>
-                <h3>Nos desserts</h3>
+        <h3 class="text-white mt-5">Nos desserts</h3>
         <div class="row">
             <?php
+                // Récupération des desserts
+                $stmt = $conn->query("SELECT id, name, prix, description, ingredients, image1 FROM desserts");
+                $desserts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Récupération des desserts
-        $stmt = $conn->query("SELECT id, name, prix, description, ingredients, image1 FROM desserts");
-        $desserts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($desserts as $dessert) {
-            $short_description = substr($dessert['description'], 0, 100); // Ajuste le nombre de caractères
-            echo "
-            <div class='col-md-4 mb-4'>
-                <div class='card'>
-                    <img src='{$dessert['image1']}' class='card-img-top' alt='{$dessert['name']}'>
-                    <div class='card-body'>
-                        <h5 class='card-title'>{$dessert['name']}</h5>
-                        <p class='card-text'>{$dessert['prix']} €</p>
-                        <p class='card-text short-description'>{$short_description}...</p>
-                        <p class='card-text full-description d-none'>{$dessert['description']}</p>
-                        <button class='btn btn-secondary show-more'>Voir plus</button>
-                    </div>
-                </div>
-            </div>";
-        }
-        ?>
+                foreach ($desserts as $dessert) {
+                    $short_description = substr($dessert['description'], 0, 100); // Ajuste le nombre de caractères
+                    echo "
+                    <div class='col-md-4 mb-4'>
+                        <div class='card'>
+                            <img src='{$dessert['image1']}' class='card-img-top' alt='{$dessert['name']}'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>{$dessert['name']}</h5>
+                                <p class='card-text'>{$dessert['prix']} €</p>
+                                <p class='card-text short-description'>{$short_description}...</p>
+                                <p class='card-text full-description d-none'>{$dessert['description']}</p>
+                                <button class='btn btn-secondary show-more'>Voir plus</button>
+                            </div>
+                        </div>
+                    </div>";
+                }
+            ?>
+        </div>
     </div>
 </main>
 
